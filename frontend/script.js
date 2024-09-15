@@ -5,7 +5,7 @@ let tbody=document.getElementById("tbody")
 
 
 //fetch function
-fetch("https://github.com/AlbertAvxhi/test_api/blob/main/db.json")
+fetch("https://albertavxhi.github.io/test_api/db.json")
     .then(res => res.json())
     .then(json =>{
         json.map(data => {
