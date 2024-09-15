@@ -5,7 +5,7 @@ let tbody=document.getElementById("tbody")
 
 
 //fetch function
-fetch("https://localhost:3001/prot")
+fetch("https://localhost:3000/prot")
     .then(res => res.json())
     .then(json =>{
         json.map(data => {
