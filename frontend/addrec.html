@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protokolli</title>
+    <link href="addrec.css" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <header>Protokolli
+            <h4>Dokumentet e Hyra</h4>
+        </header>
+        <form action="#" class="form">
+            <div class="column">
+                <div class="input-box">
+                    <label>Nr. prot. tek ne</label>
+                    <input name="Nr1" type="text" placeholder="numri i protokollit" required />
+                </div>
+                <div class="input-box">
+                    <label >Data e mberitjes</label>
+                    <input name="prt1" type="text" placeholder="data e protokollimit" required />
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Institucioni</label>
+                <input name="institucioni" type="text" placeholder="institucioni" required />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label >Nr. prot. dergues</label>
+                    <input name="nr2" type="text" placeholder="nr protokollimit nga vjen" required />
+                </div>
+                <div class="input-box">
+                    <label>Data e prot. dergues</label>
+                    <input name="pr2" type="text" placeholder="data e protokollimit nga vjen" required />
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Lenda</label>
+                <input name="lenda" type="text" placeholder="lenda" required />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+    </section>
+    <script>
+        const formEl = document.querySelector('.form');
+
+        formEl.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const formData = new FormData(formEl);
+            const data = Object.fromEntries(formData);
+//            let jsonData = JSON.stringify(data);
+
+           fetch("http://localhost:3000/prot", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+           }).then(res => res.json())
+             .then(data => console.log(data))
+             .catch(err => console.log(err))
+        });
+
+    </script>
+</body>
+</html>
