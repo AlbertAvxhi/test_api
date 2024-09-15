@@ -5,7 +5,7 @@ let tbody=document.getElementById("tbody")
 
 
 //fetch function
-fetch("https://albertavxhi.github.io/test_api/db.json")
+fetch("http://localhost:10000/prot")
     .then(res => res.json())
     .then(json =>{
         json.map(data => {
